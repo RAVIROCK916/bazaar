@@ -1,6 +1,7 @@
+import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const button = cva("button", {
+const button = cva(["button", "cursor-pointer", "border", "border-primary"], {
   variants: {
     intent: {
       primary: [
@@ -15,8 +16,7 @@ const button = cva("button", {
         "text-primary",
         "px-5",
         "py-2",
-        "border",
-        "border-primary",
+
         "hover:bg-primary-900",
       ],
     },
@@ -30,6 +30,6 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {}
 
-export const Button = ({ intent, ...props }: ButtonProps) => (
-  <button className={button({ intent })} {...props} />
+export const Button = ({ intent, children }: ButtonProps) => (
+  <button className={button({ intent })}>{children}</button>
 );
