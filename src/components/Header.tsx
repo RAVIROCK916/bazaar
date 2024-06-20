@@ -2,8 +2,8 @@ import { Button } from "./Button";
 
 const Header = () => {
   return (
-    <header className="flex justify-between bg-white px-16 py-4">
-      <ul className="flex gap-6">
+    <header className="flex justify-between border-b border-b-primary bg-white px-16 py-4">
+      <ul className="flex items-center gap-6">
         <li>Logo</li>
         <li>Shop now</li>
         <li>About Us</li>
