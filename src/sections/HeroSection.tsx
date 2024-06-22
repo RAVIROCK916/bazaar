@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <div className="flex items-center justify-between gap-36 px-16 py-20">
+    <div className="flex items-center justify-between gap-36 py-20">
       <div className="flex w-[616px] flex-col gap-6">
-        <h1 className="text-6xl font-bold">Welcome to our Bazaar!</h1>
-        <p className="text-lg leading-normal">
+        <h1>Welcome to our Bazaar!</h1>
+        <p>
           Discover our wide new range of products and enjoy a seamless shopping
           experience. Shop now and get the best dealss!
         </p>
