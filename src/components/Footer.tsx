@@ -1,4 +1,4 @@
 const Footer = () => {
-	return <footer>Footer</footer>;
+  return <footer className="px-32">Footer</footer>;
 };
 export default Footer;

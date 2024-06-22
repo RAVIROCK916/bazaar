@@ -24,8 +24,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${roboto.className} bg-light text-dark`}>
         <Header />
-        <main>{children}</main>
-        <Footer />
+        <main className="px-32">{children}</main>
+        {/* <Footer /> */}
       </body>
     </html>
   );

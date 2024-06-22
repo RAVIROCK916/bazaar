@@ -26,6 +26,14 @@
   h6 {
     @apply text-xl font-bold;
   }
+
+  p {
+    @apply text-lg leading-normal;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
 }
 
 @layer utilities {
