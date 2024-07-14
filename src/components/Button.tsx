@@ -4,11 +4,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 const button = cva(
   [
     "button",
-    "inline-flex",
+    "flex",
     "gap-2",
+    "justify-center",
     "items-center",
-    "box-content",
     "cursor-pointer",
+    "transition-colors",
   ],
   {
     variants: {
@@ -19,7 +20,7 @@ const button = cva(
           "text-primary",
           "border",
           "border-primary",
-          "hover:bg-primary-900",
+          "hover:bg-neutral-100",
         ],
         ghost: ["text-primary", "hover:text-primary-200"],
       },
