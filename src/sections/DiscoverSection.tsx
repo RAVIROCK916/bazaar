@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DiscoverSection = () => {
   return (
-    <div className="flex items-center gap-20 py-20">
+    <section className="flex items-center gap-20 py-20">
       <div className="flex flex-col gap-6">
         <strong>Discover</strong>
         <h2>Explore Our Latest Collection of Products</h2>
@@ -42,7 +42,7 @@ const DiscoverSection = () => {
           alt="Hero Image"
         />
       </figure>
-    </div>
+    </section>
   );
 };
 export default DiscoverSection;

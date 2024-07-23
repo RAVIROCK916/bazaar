@@ -8,7 +8,7 @@ import {
 
 const ShoppingExperienceSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-20 py-28 text-center">
+    <section className="flex flex-col items-center justify-center gap-20 py-28 text-center">
       <div className="max-w-3xl space-y-4">
         <span className="font-semibold">Simplified</span>
         <h2 className="!mb-6">Streamline Your Online Shopping Experience</h2>
@@ -55,7 +55,7 @@ const ShoppingExperienceSection = () => {
           </span>
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 export default ShoppingExperienceSection;

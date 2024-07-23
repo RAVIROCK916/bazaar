@@ -15,7 +15,7 @@ const DiscoverProductsSection = () => {
     fetchProducts();
   }, []);
   return (
-    <div className="space-y-20 py-28">
+    <section className="space-y-20 py-28">
       <div className="flex">
         <div className="flex-1 space-y-4">
           <p className="text-base font-semibold">Discover</p>
@@ -34,7 +34,7 @@ const DiscoverProductsSection = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 export default DiscoverProductsSection;
