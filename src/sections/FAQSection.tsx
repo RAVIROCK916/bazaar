@@ -4,7 +4,7 @@ import { faqs } from "@/data";
 
 const FAQSection = () => {
   return (
-    <div className="space-y-20 py-28 text-center">
+    <section className="space-y-20 py-28 text-center">
       <div className="space-y-6">
         <h2>FAQs</h2>
         <p>Find answers to commonly asked questions about our products.</p>
@@ -19,7 +19,7 @@ const FAQSection = () => {
           Contact
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 export default FAQSection;
