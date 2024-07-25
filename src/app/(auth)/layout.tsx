@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
+import Logo from "@/components/Logo";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -25,7 +26,9 @@ export default function RootLayout({
         <main className="flex min-h-screen *:flex-1">
           <Image src="/Hero.png" alt="logo" width={768} height={100} />
           <div className="flex flex-col px-16 *:flex *:items-center">
-            <h5 className="h-16">Logo</h5>
+            <h5 className="h-16">
+              <Logo />
+            </h5>
             <div className="flex-1 flex-col items-center justify-center gap-8">
               {children}
             </div>
