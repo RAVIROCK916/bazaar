@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
 import Logo from "@/components/Logo";
+import { Toaster } from "@/components/ui/toaster";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -11,7 +12,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Bazaar",
+  title: "Login / Register",
   description: "A modern e-commerce platform. Shop now and get the best deals!",
 };
 
@@ -26,7 +27,7 @@ export default function RootLayout({
         <main className="flex min-h-screen *:flex-1">
           <Image src="/Hero.png" alt="logo" width={768} height={100} />
           <div className="flex flex-col px-16 *:flex *:items-center">
-            <h5 className="h-16">
+            <h5 className="mt-8 h-16">
               <Logo />
             </h5>
             <div className="flex-1 flex-col items-center justify-center gap-8">
@@ -35,6 +36,7 @@ export default function RootLayout({
             <span className="my-auto h-16 text-xs">© 2024 Bazaar</span>
           </div>
         </main>
+        <Toaster />
       </body>
     </html>
   );
