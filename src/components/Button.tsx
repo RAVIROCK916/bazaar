@@ -1,5 +1,6 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 
 const button = cva(
   [
@@ -10,19 +11,22 @@ const button = cva(
     "items-center",
     "cursor-pointer",
     "transition-colors",
+    "rounded",
+    "disabled:cursor-not-allowed",
+    "disabled:opacity-85",
   ],
   {
     variants: {
       intent: {
-        primary: ["bg-primary", "text-white", "hover:bg-primary-100"],
+        primary: ["bg-primary", "text-white", "enabled:hover:bg-primary-100"],
         outline: [
           "bg-transparent",
           "text-primary",
           "border",
           "border-primary",
-          "hover:bg-neutral-100",
+          "enabled:hover:bg-neutral-100",
         ],
-        ghost: ["text-primary", "hover:text-primary-200"],
+        ghost: ["text-primary", "enabled:hover:text-primary-200"],
       },
       size: {
         sm: ["px-5", "py-2"],
@@ -40,6 +44,14 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {}
 
-export const Button = ({ intent, size, children }: ButtonProps) => (
-  <button className={button({ intent, size })}>{children}</button>
+export const Button = ({
+  intent,
+  size,
+  className,
+  children,
+  ...props
+}: ButtonProps) => (
+  <button className={twMerge(button({ intent, size, className }))} {...props}>
+    {children}
+  </button>
 );
