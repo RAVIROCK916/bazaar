@@ -1,4 +1,4 @@
-import pool from "@/db";
+import db from "@/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -20,7 +20,7 @@ export async function GET(req: Request) {
   const sessionID = cookie.sessionID;
 
   const query = "SELECT * FROM session_ids WHERE id = $1";
-  const user = await pool.query(query, [sessionID]);
+  const user = await db.query(query, [sessionID]);
 
   if (user?.rows?.length === 0) {
     return new NextResponse("User not found", {

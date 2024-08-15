@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import pool from "../../../../db";
+import db from "../../../../db";
+import createSessionCookie from "../../utils/createSessionCookie";
 
 export async function GET(req: Request) {
   return new NextResponse("GET call returned!");
@@ -8,7 +9,8 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
-  const numberOfUsers = await pool.query(
+
+  const numberOfUsers = await db.query(
     `SELECT COUNT(*) FROM users WHERE name = '${email}';`,
   );
   if (numberOfUsers.rows[0].count > 0) {
@@ -18,8 +20,11 @@ export async function POST(req: Request) {
   }
 
   const hashedPassword = bcrypt.hashSync(password, 10);
-  await pool.query(
-    `INSERT INTO users VALUES ('${email}', '${hashedPassword}');`,
+  const user = await db.query(
+    `INSERT INTO users VALUES ('${email}', '${hashedPassword}') RETURNING *;`,
   );
+
+  createSessionCookie(user);
+
   return new NextResponse("User created successfully!");
 }
