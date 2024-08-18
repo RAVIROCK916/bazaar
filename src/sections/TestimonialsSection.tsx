@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
                   <h5 className="text-center">{testimonial.description}</h5>
                   <div className="flex items-stretch gap-5">
                     <div className="flex items-center gap-4">
-                      <span className="size-12 rounded-full bg-neutral-200">
+                      <span className="size-12 overflow-hidden rounded-full bg-neutral-200">
                         <img src={testimonial.image} alt="" />
                       </span>
                       <div>

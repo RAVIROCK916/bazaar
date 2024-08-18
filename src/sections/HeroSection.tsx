@@ -15,7 +15,7 @@ const HeroSection = () => {
           <Button intent="outline">Learn More</Button>
         </div>
       </div>
-      <figure>
+      <figure className="overflow-hidden rounded">
         <Image
           src="/Hero.png"
           width={540}

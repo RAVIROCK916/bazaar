@@ -33,7 +33,7 @@ const DiscoverSection = () => {
           </Button>
         </div>
       </div>
-      <figure>
+      <figure className="overflow-hidden rounded">
         <Image
           src="/Latest Collection.png"
           width={616}

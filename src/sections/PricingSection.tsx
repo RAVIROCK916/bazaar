@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/Button";
 import { pricingOptions } from "@/data";
 import { useState } from "react";
@@ -21,6 +23,7 @@ const PricingSection = () => {
                   setCurrentIndex(i + 1);
                 }
               }}
+              className="first:rounded-r-none last:rounded-l-none"
             >
               {option.title}
             </Button>
@@ -31,7 +34,7 @@ const PricingSection = () => {
         {pricingOptions[currentIndex - 1].plans?.map((plan, i) => (
           <div
             key={`plan-${i}`}
-            className="space-y-8 border border-primary p-8"
+            className="space-y-8 rounded border border-primary p-8"
           >
             <div className="space-y-1">
               <h6>{plan.title}</h6>
@@ -39,13 +42,13 @@ const PricingSection = () => {
             </div>
             <hr />
             <div className="space-y-8">
-              <h1>
-                {plan.price} <span className="text-lg">/{plan.period}</span>
+              <h1 className="flex items-baseline gap-x-2 text-primary">
+                {plan.price} <span className="text-lg">/ {plan.period}</span>
               </h1>
               <Button className="w-full">Get Started</Button>
             </div>
             <hr />
-            <div className="space-y-4">
+            <div className="space-y-4 text-primary">
               {plan.features.map((feature, i) => (
                 <p
                   key={`feature-${i}`}

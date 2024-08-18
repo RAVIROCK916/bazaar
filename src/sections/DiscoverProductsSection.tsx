@@ -1,19 +1,24 @@
 import { Button } from "@/components/Button";
 import ProductCard from "@/components/ProductCard";
+import { setProducts } from "@/state/products/productsSlice";
+import { RootState } from "@/state/store";
 import ProductType from "@/types/ProductType";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const DiscoverProductsSection = () => {
-  const [products, setProducts] = useState<ProductType[]>([]);
+  const products = useSelector((state: RootState) => state.products.products);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await axios.get("/api/products");
-      console.log("response", response.data);
-      setProducts(response.data);
+      dispatch(setProducts(response.data));
     };
     fetchProducts();
   }, []);
+
   return (
     <section className="space-y-20 py-28">
       <div className="flex">
