@@ -1,9 +1,21 @@
-import shopifyClient from "@/app/lib/shopifyClient";
+import db from "@/db";
 
 export async function GET(request: Request) {
   try {
-    const response = await shopifyClient.get("/products.json");
-    const products = response.data.products.slice(0, 10);
+    const { searchParams } = new URL(request.url);
+    const searchQuery = searchParams.get("search");
+
+    if (searchQuery) {
+      const products = await db.query(
+        "SELECT * FROM products WHERE name ILIKE $1",
+        ["%" + searchQuery + "%"],
+      );
+
+      return new Response(JSON.stringify(products.rows));
+    }
+
+    const response = await db.query("SELECT * FROM products");
+    const products = response.rows.slice(0, 10);
     return Response.json(products);
   } catch (error: any) {
     return new Response("Something went wrong", { status: 500 });
