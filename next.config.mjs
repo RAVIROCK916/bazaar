@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "cdn.shopify.com",
+        hostname: "www.jiomart.com",
       },
     ],
   },
