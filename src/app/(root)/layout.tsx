@@ -1,8 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Roboto } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
+import { Provider, useSelector } from "react-redux";
+import store, { RootState } from "@/state/store";
+import { setIsAuthenticated } from "@/state/auth/authSlice";
+import { Toaster } from "@/components/ui/toaster";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -10,23 +16,36 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Bazaar",
-  description: "A modern e-commerce platform. Shop now and get the best deals!",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/api/auth/me", {
+        credentials: "include",
+      });
+
+      if (res.status === 200) {
+        store.dispatch(setIsAuthenticated(true));
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${roboto.className} bg-light text-dark`}>
-        <Header />
-        <main className="px-32">{children}</main>
-        {/* <Footer /> */}
-      </body>
+      <Provider store={store}>
+        <body
+          className={`${roboto.className} bg-light text-dark dark:bg-dark dark:text-light`}
+        >
+          <Header />
+          <main className="px-32">{children}</main>
+          <Toaster />
+          <Footer />
+        </body>
+      </Provider>
     </html>
   );
 }

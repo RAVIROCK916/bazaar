@@ -1,6 +1,8 @@
 "use client";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
+import { toast } from "@/components/ui/use-toast";
+import { CheckCircleIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -24,7 +26,11 @@ const page = () => {
       },
     });
     if (response.status === 200) {
-      router.back();
+      router.push("/");
+      toast({
+        title: "You have successfully logged in!",
+        variant: "success",
+      });
     }
   };
 
