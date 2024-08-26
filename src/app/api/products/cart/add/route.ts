@@ -32,7 +32,6 @@ export async function POST(req: NextRequest) {
       { status: 200 },
     );
   } catch (error: any) {
-    console.error(error);
     return NextResponse.json(
       { error: "Failed to add item to cart" },
       { status: 500 },

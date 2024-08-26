@@ -1,4 +1,6 @@
 import db from "@/db";
+import axios from "axios";
+import { PRODUCTS_API_URL } from "../constants";
 
 export async function GET(request: Request) {
   try {
@@ -14,8 +16,8 @@ export async function GET(request: Request) {
       return new Response(JSON.stringify(products.rows));
     }
 
-    const response = await db.query("SELECT * FROM products");
-    const products = response.rows.slice(0, 10);
+    const response = await axios.get(PRODUCTS_API_URL);
+    const products = response.data;
     return Response.json(products);
   } catch (error: any) {
     return new Response("Something went wrong", { status: 500 });
