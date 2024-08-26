@@ -7,12 +7,18 @@ import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import {
   Configure,
-  ConfigureProps,
-  InfiniteHits,
   InstantSearch,
   useSearchBox,
+} from "react-instantsearch-core";
+import {
+  HierarchicalMenu,
+  InfiniteHits,
+  RangeInput,
+  RefinementList,
 } from "react-instantsearch";
+import { ConfigureProps } from "react-instantsearch-hooks";
 import { singleIndex } from "instantsearch.js/es/lib/stateMappings";
+import { Filter, FilterProps } from "@/components/Filter";
 
 const page = ({
   searchParams,
@@ -34,8 +40,8 @@ const page = ({
         key={(searchParams.q as string) || ""}
       >
         <Configure {...configureProps} />
-        <VirtualSearchBox />
-        <div className="mx-w-2xl mx-auto px-4 lg:max-w-7xl lg:px-8">
+        {/* <VirtualSearchBox /> */}
+        <div className="mx-w-2xl mx-auto lg:max-w-7xl">
           <div className="pb-24 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
             <aside>
               <h2 className="sr-only">Filters</h2>
@@ -54,9 +60,9 @@ const page = ({
                 />
               </button>
 
-              {/* <div className="hidden space-y-10 divide-y divide-gray-200 lg:block">
+              <div className="hidden space-y-10 divide-y divide-gray-200 lg:block">
                 <Filters type="list" />
-              </div> */}
+              </div>
             </aside>
 
             <section
@@ -88,6 +94,57 @@ const page = ({
     </div>
   );
 };
+
+function Filters({ type }: Pick<FilterProps, "type">) {
+  return (
+    <>
+      <Filter header="Categories" type={type}>
+        <HierarchicalMenu
+          attributes={["categories.lvl0", "categories.lvl1"]}
+          limit={8}
+          classNames={{
+            root: "pt-6 -ml-4",
+            list: "ml-4 block space-y-4 lg:space-y-3",
+            item: "space-y-4 lg:space-y-3",
+            link: "block text-sm text-gray-600 cursor-pointer",
+            count:
+              "ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700",
+          }}
+        />
+      </Filter>
+      <Filter header="Brand" type={type} className="pt-10">
+        <RefinementList
+          attribute="brand"
+          limit={8}
+          classNames={{
+            list: "pt-6 space-y-4 lg:space-y-3",
+            item: "flex items-center",
+            label: "cursor-pointer",
+            selectedItem: "font-semibold",
+            checkbox:
+              "h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer",
+            labelText: "ml-3 text-sm text-gray-600",
+            count:
+              "ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700",
+          }}
+        />
+      </Filter>
+      <Filter header="Price range" type={type} className="pt-10">
+        <RangeInput
+          attribute="price"
+          classNames={{
+            form: "pt-6 flex space-x-4 justify-between",
+            input:
+              "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+            separator: "self-center text-sm font-medium text-gray-500",
+            submit:
+              "rounded-md bg-gray-200 px-4 text-sm font-medium text-gray-600 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50",
+          }}
+        />
+      </Filter>
+    </>
+  );
+}
 
 function VirtualSearchBox() {
   useSearchBox();
