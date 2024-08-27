@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ProductDetails from "./ProductDetails";
+import repeatArray from "@/utils/repeatArray";
 
 const ProductFetch = () => {
   const { productId } = useParams();
@@ -12,7 +13,8 @@ const ProductFetch = () => {
     const fetchProduct = async () => {
       const response = await fetch(`/api/products/id/${productId}`);
       const product = await response.json();
-      setProduct(product.data);
+      product.images = repeatArray(product.images);
+      setProduct(product);
     };
     fetchProduct();
   }, []);

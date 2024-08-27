@@ -14,7 +14,8 @@ const DiscoverProductsSection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await axios.get("/api/products");
-      dispatch(setProducts(response.data));
+      dispatch(setProducts(response.data.products));
+      console.log(response.data.products);
     };
     fetchProducts();
   }, []);
@@ -34,7 +35,7 @@ const DiscoverProductsSection = () => {
           <Button intent="outline">View All</Button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-x-12 gap-y-16">
+      <div className="grid grid-cols-4 gap-6">
         {products.map((product: ProductType) => (
           <ProductCard key={product.id} product={product} />
         ))}
