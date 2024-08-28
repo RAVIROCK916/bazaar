@@ -12,6 +12,7 @@ const button = cva(
     "cursor-pointer",
     "transition-colors",
     "rounded",
+    "min-w-max",
     "disabled:cursor-not-allowed",
     "disabled:opacity-85",
   ],

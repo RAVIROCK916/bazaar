@@ -1,4 +1,6 @@
 const Logo = () => {
-  return <h4 className="text-primary-100">Bazaar</h4>;
+  return (
+    <img src="/Bazaar.svg" alt="logo" className="size-12 bg-transparent" />
+  );
 };
 export default Logo;
