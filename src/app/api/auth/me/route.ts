@@ -2,6 +2,10 @@ import db from "@/db";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
+// export const config = {
+//   runtime: "nodejs",
+// };
+
 export async function GET(req: Request) {
   const sessionID = cookies().get("sessionID")?.value;
 
