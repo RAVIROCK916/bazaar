@@ -21,7 +21,7 @@ const Footer = () => {
             <th>Help Center</th>
           </tr>
         </thead>
-        <tbody className="text-sm *:my-8">
+        <tbody className="text-sm *:my-2">
           <tr>
             <td></td>
             <td>Contact</td>

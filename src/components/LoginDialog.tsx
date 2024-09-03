@@ -20,7 +20,7 @@ const LoginDialog = ({
 
   return (
     <Dialog open={!isLoggedIn && open} onOpenChange={setOpen}>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger className="w-full">{children}</DialogTrigger>
       <DialogContent>
         <DialogTitle>Please login to continue</DialogTitle>
         <DialogDescription asChild>

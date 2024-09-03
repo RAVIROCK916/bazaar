@@ -30,7 +30,8 @@ const LoginForm = () => {
     if (response.status === 200) {
       location.reload();
       toast({
-        title: "You have successfully logged in!",
+        title: "Login",
+				description: "You have successfully logged in!",
         variant: "success",
       });
     }

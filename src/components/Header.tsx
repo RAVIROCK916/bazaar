@@ -131,15 +131,21 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link href="/products">Shop now</Link>
+          <Link href="/products" className="uppercase">
+            Shop now
+          </Link>
         </li>
         <li>
-          <Link href="/about">About Us</Link>
+          <Link href="/about" className="uppercase">
+            About Us
+          </Link>
         </li>
         <li>
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact" className="uppercase">
+            Contact
+          </Link>
         </li>
-        <li>More</li>
+        <li className="uppercase">More</li>
       </ul>
       <div className="flex items-center gap-4">
         <Autocomplete

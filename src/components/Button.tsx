@@ -9,6 +9,7 @@ const button = cva(
     "gap-2",
     "justify-center",
     "items-center",
+    "font-semibold",
     "cursor-pointer",
     "transition-colors",
     "rounded",

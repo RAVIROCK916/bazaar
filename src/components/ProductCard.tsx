@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import addToCart from "@/utils/addToCart";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store";
+import LoginDialog from "./LoginDialog";
 
 type props = {
   product: ProductType;
@@ -47,15 +48,17 @@ const ProductCard = ({ product }: props) => {
             <p className="text-sm">{product.category}</p>
           </div>
         </div>
-        <Button
-          className="w-full"
-          onClick={(e) => {
-            addToCart(product.id, 1, isLoggedIn);
-            e.stopPropagation();
-          }}
-        >
-          Add to Cart
-        </Button>
+        <LoginDialog isLoggedIn={isLoggedIn}>
+          <Button
+            className="w-full"
+            onClick={(e) => {
+              addToCart(product.id, 1);
+              e.stopPropagation();
+            }}
+          >
+            Add to cart
+          </Button>
+        </LoginDialog>
       </div>
     </div>
   );
