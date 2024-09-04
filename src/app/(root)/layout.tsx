@@ -1,6 +1,6 @@
 "use client";
 
-import { Roboto } from "next/font/google";
+import { Roboto, Rajdhani } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,6 +13,12 @@ import { Toaster } from "@/components/ui/toaster";
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   style: ["normal", "italic"],
+  subsets: ["latin"],
+});
+
+const rajdhani = Rajdhani({
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
   subsets: ["latin"],
 });
 
@@ -38,7 +44,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <Provider store={store}>
         <body
-          className={`${roboto.className} bg-light text-dark dark:bg-dark dark:text-light`}
+          className={`${rajdhani.className} bg-light font-medium text-dark dark:bg-dark dark:text-light`}
         >
           <Header />
           <main className="px-32">{children}</main>

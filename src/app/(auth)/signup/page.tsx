@@ -47,7 +47,8 @@ const page = () => {
       if (response.status === 200) {
         axios.post("/api/emails", JSON.stringify({ name, email }));
         toast({
-          title: "You have successfully signed up!",
+          title: "Signup",
+          description: "You have successfully signed up!",
           variant: "success",
         });
         router.push("/");
@@ -64,7 +65,9 @@ const page = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative space-y-2">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className="font-medium">
+            Name
+          </label>
           <Input type="name" id="name" {...register("name")} />
           {errors.name?.message && (
             <span className="absolute -bottom-6 text-sm text-destructive">
@@ -73,7 +76,9 @@ const page = () => {
           )}
         </div>
         <div className="relative space-y-2">
-          <label htmlFor="email">Email*</label>
+          <label htmlFor="email" className="font-medium">
+            Email*
+          </label>
           <Input type="email" id="email" {...register("email")} />
           {errors.email && (
             <span className="absolute -bottom-6 text-sm text-destructive">
@@ -82,7 +87,9 @@ const page = () => {
           )}
         </div>
         <div className="relative space-y-2">
-          <label htmlFor="password">Password*</label>
+          <label htmlFor="password" className="font-medium">
+            Password*
+          </label>
           <Input type="password" id="password" {...register("password")} />
           {errors.password && (
             <span className="absolute -bottom-6 text-sm text-destructive">

@@ -1,8 +1,12 @@
-"use client";
+import { Metadata } from "next";
 
 import DiscoverProductsSection from "@/sections/DiscoverProductsSection";
 import FAQSection from "@/sections/FAQSection";
-import { useEffect } from "react";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: "Discover a wide range of products at our online store.",
+};
 
 const page = () => {
   return (

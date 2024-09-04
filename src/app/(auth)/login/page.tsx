@@ -28,7 +28,8 @@ const page = () => {
     if (response.status === 200) {
       router.push("/");
       toast({
-        title: "You have successfully logged in!",
+        title: "Login",
+				description: "You have successfully logged in!",
         variant: "success",
       });
     }
@@ -45,7 +46,9 @@ const page = () => {
         }}
       >
         <div className="space-y-2">
-          <label htmlFor="email">Email*</label>
+          <label htmlFor="email" className="font-medium">
+            Email*
+          </label>
           <Input
             type="email"
             autoComplete="email"
@@ -55,7 +58,9 @@ const page = () => {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="password">Password*</label>
+          <label htmlFor="password" className="font-medium">
+            Password*
+          </label>
           <Input
             type="password"
             autoComplete="current-password"

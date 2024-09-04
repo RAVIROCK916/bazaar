@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Rajdhani } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
 import Logo from "@/components/Logo";
@@ -8,6 +8,12 @@ import { Toaster } from "@/components/ui/toaster";
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   style: ["normal", "italic"],
+  subsets: ["latin"],
+});
+
+const rajdhani = Rajdhani({
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
   subsets: ["latin"],
 });
 
@@ -23,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${roboto.className} bg-light text-dark`}>
+      <body className={`${rajdhani.className} bg-light text-dark`}>
         <main className="flex min-h-screen *:flex-1">
           <Image src="/Hero.png" alt="logo" width={768} height={100} />
           <div className="flex flex-col px-16 *:flex *:items-center">
