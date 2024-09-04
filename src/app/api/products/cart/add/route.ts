@@ -22,6 +22,21 @@ export async function POST(req: NextRequest) {
       );
     }
     const quantityInCart = cartItem.rows[0].quantity;
+    if (quantityInCart + quantity > 10) {
+      return NextResponse.json(
+        { error: "You can't add more than 10 items to cart" },
+        { status: 400 },
+      );
+    } else if (quantityInCart + quantity === 0) {
+      await db.query(
+        "DELETE FROM cart WHERE user_id = $1 AND product_id = $2",
+        [userId, productId],
+      );
+      return NextResponse.json(
+        { message: "Item removed from cart successfully" },
+        { status: 200 },
+      );
+    }
     await db.query(
       "UPDATE cart SET quantity = $1 WHERE user_id = $2 AND product_id = $3",
       [quantityInCart + quantity, userId, productId],

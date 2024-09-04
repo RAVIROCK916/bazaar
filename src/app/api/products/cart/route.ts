@@ -4,7 +4,6 @@ import ProductType from "@/types/ProductType";
 
 export async function GET(request: Request) {
   const userId = await getUserId();
-  console.log(userId);
 
   try {
     const cartItems = await db.query("SELECT * FROM cart WHERE user_id = $1", [
@@ -19,11 +18,9 @@ export async function GET(request: Request) {
       cart.push({ product: product.rows[0], quantity: item.quantity });
     }
 
-    console.log(cart);
-
-    return new Response(JSON.stringify(cart));
-  } catch (e) {
-    console.log(e);
+    return Response.json(cart);
+  } catch (error) {
+    console.log(error);
   }
   return new Response("Something went wrong", { status: 500 });
 }
