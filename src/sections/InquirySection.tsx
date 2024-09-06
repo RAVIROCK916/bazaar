@@ -46,7 +46,7 @@ const InquirySection = () => {
           <label htmlFor="message">Message</label>
           <textarea
             placeholder="Enter your message"
-            className="block max-h-96 min-h-44 w-full border border-black p-3"
+            className="block max-h-96 min-h-44 w-full rounded border border-neutral-600 p-3"
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
           />

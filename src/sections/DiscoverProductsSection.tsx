@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/Button";
 import ProductCard from "@/components/ProductCard";
 import { setProducts } from "@/state/products/productsSlice";
