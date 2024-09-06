@@ -9,7 +9,8 @@ export default async function addToCart(productId: number, quantity: number) {
     });
     if (response.status === 200) {
       toast({
-        title: "Added to cart",
+        title: "Cart",
+        description: "Item added to cart successfully",
         variant: "success",
       });
     }
