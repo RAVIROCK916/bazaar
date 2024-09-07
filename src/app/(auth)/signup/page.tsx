@@ -22,7 +22,7 @@ const formSchema = z.object({
 
 type FormFields = z.infer<typeof formSchema>;
 
-const page = () => {
+const Page = () => {
   const {
     register,
     getValues,
@@ -124,4 +124,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;

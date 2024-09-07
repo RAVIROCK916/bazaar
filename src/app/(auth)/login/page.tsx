@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa6";
 
-const page = () => {
+const Page = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const { email, password } = form;
 
@@ -29,7 +29,7 @@ const page = () => {
       router.push("/");
       toast({
         title: "Login",
-				description: "You have successfully logged in!",
+        description: "You have successfully logged in!",
         variant: "success",
       });
     }
@@ -87,4 +87,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default Page;
