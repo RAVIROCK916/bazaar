@@ -38,7 +38,7 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof input> {}
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ size, variant, className, ...props }: InputProps, ref) => (
     <input
       className={twMerge(input({ variant, className }))}
@@ -49,3 +49,5 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
+
+export { Input };
