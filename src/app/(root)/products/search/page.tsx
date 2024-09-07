@@ -20,7 +20,7 @@ import { ConfigureProps } from "react-instantsearch-hooks";
 import { singleIndex } from "instantsearch.js/es/lib/stateMappings";
 import { Filter, FilterProps } from "@/components/Filter";
 
-const page = ({
+const Page = ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -152,4 +152,4 @@ function VirtualSearchBox() {
   return null;
 }
 
-export default page;
+export default Page;

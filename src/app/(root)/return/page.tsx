@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
 
@@ -40,4 +40,4 @@ const page = () => {
 
   return null;
 };
-export default page;
+export default Page;
