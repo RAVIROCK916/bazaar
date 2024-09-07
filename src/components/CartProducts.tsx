@@ -21,15 +21,18 @@ type CartItem = {
 interface CartItemCardProps {
   item: CartItem;
   removeCartItem: (idx: number) => void;
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
-const CartItemCard = ({ item, removeCartItem }: CartItemCardProps) => {
+const CartItemCard = ({
+  item,
+  removeCartItem,
+  setCartItems,
+}: CartItemCardProps) => {
   const [quantity, setQuantity] = useState(0);
 
   const debouncedQuantity = useDebounce(quantity);
   const isFirstRender = useIsFirstRender();
-
-  const totalQuantity = item.quantity + quantity;
 
   useEffect(() => {
     if (isFirstRender) return;
@@ -80,14 +83,25 @@ const CartItemCard = ({ item, removeCartItem }: CartItemCardProps) => {
             <button
               className="text-lg"
               onClick={() => {
-                setQuantity((prev) => prev - 1);
+                setCartItems((prevItems) =>
+                  prevItems.map((prevItem) => {
+                    if (prevItem.product.id === item.product.id) {
+                      return {
+                        ...prevItem,
+                        quantity: prevItem.quantity - 1,
+                      };
+                    }
+                    return prevItem;
+                  }),
+                );
+                setQuantity(quantity - 1);
               }}
-              disabled={totalQuantity === 1}
+              disabled={item.quantity === 1}
             >
               <Minus
                 className="size-5"
                 style={
-                  totalQuantity === 1
+                  item.quantity === 1
                     ? {
                         color: "gray",
                       }
@@ -96,15 +110,30 @@ const CartItemCard = ({ item, removeCartItem }: CartItemCardProps) => {
               />
             </button>
             <span className="flex size-8 items-center justify-center rounded bg-black px-2 text-white">
-              {totalQuantity}
+              {item.quantity}
             </span>
             <button
               className="text-base"
               onClick={() => {
-                setQuantity((prev) => prev + 1);
+                setCartItems((prevItems) =>
+                  prevItems.map((prevItem) => {
+                    if (prevItem.product.id === item.product.id) {
+                      return {
+                        ...prevItem,
+                        quantity: prevItem.quantity + 1,
+                      };
+                    }
+                    return prevItem;
+                  }),
+                );
+                setQuantity(quantity + 1);
               }}
+              disabled={item.quantity === 10}
             >
-              <Plus className="size-5" />
+              <Plus
+                className="size-5"
+                style={item.quantity === 10 ? { color: "gray" } : {}}
+              />
             </button>
           </span>
         </div>
@@ -115,14 +144,23 @@ const CartItemCard = ({ item, removeCartItem }: CartItemCardProps) => {
 
 const CartProducts = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [quantities, setQuantities] = useState([]);
 
   const Router = useRouter();
+
+  const TAX = 18 / 100;
+  const totalCost = cartItems.reduce((acc, item) => {
+    return acc + Number(item.product.price) * item.quantity;
+  }, 0);
+  const totalTax = totalCost * TAX;
+  const totalCostWithTax = totalCost + totalTax;
 
   useEffect(() => {
     const fetchCart = async () => {
       const res = await fetch("/api/products/cart");
       const data = await res.json();
       setCartItems(data);
+      setQuantities(data.map((item: CartItem) => item.quantity));
     };
     fetchCart();
   }, []);
@@ -151,6 +189,7 @@ const CartProducts = () => {
             key={item.product.id}
             item={item}
             removeCartItem={removeCartItem}
+            setCartItems={setCartItems}
           />
         ))}
       </div>
@@ -161,10 +200,12 @@ const CartProducts = () => {
               key={item.product.id}
               className="flex justify-between font-medium"
             >
-              <span className="max-w-72 uppercase">{item.product.title}</span>
+              <span className="max-w-72 uppercase">
+                {item.quantity} x {item.product.title}
+              </span>
               <span className="flex items-center">
                 <IndianRupee className="size-3.5 text-neutral-700" />
-                {item.product.price}
+                {(Number(item.product.price) * item.quantity).toFixed(2)}
               </span>
             </div>
           ))}
@@ -177,9 +218,7 @@ const CartProducts = () => {
           <p className="tracking-wider">TOTAL</p>
           <span className="flex items-center text-lg">
             <IndianRupee className="size-3.5" />
-            {cartItems
-              .reduce((acc, item) => acc + Number(item.product.price), 0)
-              .toFixed(2)}
+            {totalCostWithTax.toFixed(2)}
           </span>
         </div>
         <div>
