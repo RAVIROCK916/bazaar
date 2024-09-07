@@ -68,6 +68,9 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      flex: {
+        "2": "2 2 0%",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
