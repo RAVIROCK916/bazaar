@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "./Button";
 import Logo from "./Logo";
-import { FaMagnifyingGlass, FaRegClock, FaUser } from "react-icons/fa6";
+import { FaRegClock, FaUser } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { useRouter, useSearchParams } from "next/navigation";
 import { RootState } from "@/state/store";
@@ -14,8 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import SearchBar from "./SearchBar";
-import { Search } from "./Search";
+import { AnimatePresence, motion } from "framer-motion";
 import { searchClient } from "@/utils/searchClient";
 import { createQuerySuggestionsPlugin } from "@algolia/autocomplete-plugin-query-suggestions";
 import { createLocalStorageRecentSearchesPlugin } from "@algolia/autocomplete-plugin-recent-searches";
@@ -27,9 +26,13 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import "@/styles/search.css";
 import { HiOutlineClock, HiOutlineTrash } from "react-icons/hi";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import { IoIosMenu } from "react-icons/io";
+import { RxCross2 } from "react-icons/rx";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const Router = useRouter();
   const searchParams = useSearchParams();
   const auth = useSelector((state: RootState) => state.auth);
@@ -125,7 +128,41 @@ const Header = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-b-primary bg-white/70 px-32 py-4 backdrop-blur">
+      <div
+        className="absolute left-6 top-4 p-2"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <IoIosMenu className="text-2xl text-primary-200 sm:hidden" />
+      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="absolute -inset-x-full flex flex-col items-center gap-y-10 bg-white text-2xl"
+            animate={{ inset: "0px" }}
+            exit={{ inset: "-100%" }}
+          >
+            <Link href="/">
+              <Logo />
+            </Link>
+            <Link href="/products">Products</Link>
+            <Link href="/about">About Us</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/about">More</Link>
+            {auth.isAuthenticated ? (
+              <Link href="/profile">Profile</Link>
+            ) : (
+              <Link href="/login">Login</Link>
+            )}
+            <span>
+              <RxCross2
+                className="text-neutral-400 hover:text-neutral-800"
+                onClick={() => setIsOpen(false)}
+              />
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <header className="sticky top-0 z-10 hidden items-center justify-between border-b border-b-primary bg-white/70 px-32 py-4 backdrop-blur sm:flex">
         <ul className="flex items-center gap-x-12">
           <li>
             <Link href="/">
@@ -134,7 +171,7 @@ const Header = () => {
           </li>
           <li>
             <Link href="/products" className="uppercase">
-              Shop now
+              Products
             </Link>
           </li>
           <li>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const DiscoverSection = () => {
   return (
@@ -27,13 +28,17 @@ const DiscoverSection = () => {
           </li>
         </ul>
         <div className="mt-4 flex gap-6">
-          <Button intent="outline">Shop</Button>
-          <Button intent="ghost">
-            Learn More <ChevronRight />
-          </Button>
+          <Link href="/products">
+            <Button intent="outline">Shop</Button>
+          </Link>
+          <Link href="/about">
+            <Button intent="ghost">
+              Learn More <ChevronRight />
+            </Button>
+          </Link>
         </div>
       </div>
-      <figure className="overflow-hidden rounded">
+      <figure className="hidden overflow-hidden rounded sm:block">
         <Image
           src="/Latest Collection.png"
           width={616}

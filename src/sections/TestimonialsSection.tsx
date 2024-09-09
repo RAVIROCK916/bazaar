@@ -16,14 +16,14 @@ const TestimonialsSection = () => {
     <section className="relative py-28">
       <div className="flex items-center justify-center">
         <span
-          className="absolute left-0 grid size-12 cursor-pointer place-content-center rounded-full border border-neutral-600 hover:bg-neutral-100"
+          className="absolute -left-6 grid size-8 cursor-pointer place-content-center rounded-full border border-neutral-600 hover:bg-neutral-100 sm:left-0 sm:size-12"
           onClick={() =>
             setCurrIndex((prev) =>
               prev - 1 < 0 ? testimonials.length - 1 : prev - 1,
             )
           }
         >
-          <GoArrowLeft className="size-6 font-light" />
+          <GoArrowLeft className="size-4 font-light sm:size-6" />
         </span>
         <div className="overflow-hidden" ref={scrollRef}>
           <div className="flex">
@@ -37,7 +37,9 @@ const TestimonialsSection = () => {
                       </span>
                     ))}
                   </div>
-                  <h5 className="text-center">{testimonial.description}</h5>
+                  <h5 className="text-center text-lg sm:text-2xl">
+                    {testimonial.description}
+                  </h5>
                   <div className="flex items-stretch gap-5">
                     <div className="flex items-center gap-4">
                       <span className="size-12 overflow-hidden rounded-full bg-neutral-200">
@@ -57,12 +59,12 @@ const TestimonialsSection = () => {
           </div>
         </div>
         <span
-          className="absolute right-0 grid size-12 cursor-pointer place-content-center rounded-full border border-neutral-600 hover:bg-neutral-100"
+          className="absolute -right-6 grid size-8 cursor-pointer place-content-center rounded-full border border-neutral-600 hover:bg-neutral-100 sm:right-0 sm:size-12"
           onClick={() =>
             setCurrIndex((prev) => (prev + 1) % testimonials.length)
           }
         >
-          <GoArrowRight className="size-6 font-light" />
+          <GoArrowRight className="size-4 font-light sm:size-6" />
         </span>
       </div>
     </section>

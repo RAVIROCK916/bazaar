@@ -47,7 +47,7 @@ export default function RootLayout({
           className={`${rajdhani.className} bg-light font-medium text-dark dark:bg-dark dark:text-light`}
         >
           <Header />
-          <main className="px-32">{children}</main>
+          <main className="px-8 sm:px-32">{children}</main>
           <Toaster />
           <Footer />
         </body>

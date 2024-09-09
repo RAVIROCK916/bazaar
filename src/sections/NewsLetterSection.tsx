@@ -3,9 +3,9 @@ import { Input } from "@/components/Input";
 
 const NewsLetterSection = () => {
   return (
-    <section className="flex gap-x-20 py-28 *:flex-1">
+    <section className="gap-x-20 space-y-4 py-12 *:flex-1 sm:flex sm:space-y-0 sm:py-28">
       <h2>Stay Updated with Our Newsletter</h2>
-      <div className="space-y-6">
+      <div className="space-y-2 sm:space-y-6">
         <p className="text-base">
           Get the latest updates and exclusive offers straight to your inbox.
         </p>

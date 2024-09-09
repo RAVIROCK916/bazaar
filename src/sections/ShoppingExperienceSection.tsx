@@ -8,8 +8,8 @@ import {
 
 const ShoppingExperienceSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-20 py-28 text-center">
-      <div className="max-w-3xl space-y-4">
+    <section className="flex flex-col items-center justify-center gap-y-12 py-12 text-center sm:gap-y-20 sm:py-28">
+      <div className="max-w-3xl space-y-2 sm:space-y-4">
         <span className="font-semibold">Simplified</span>
         <h2 className="!mb-6">Streamline Your Online Shopping Experience</h2>
         <p>
@@ -19,8 +19,8 @@ const ShoppingExperienceSection = () => {
         </p>
       </div>
       <div className="space-y-12">
-        <div className="flex gap-12">
-          <div className="flex flex-col items-center justify-center gap-6">
+        <div className="gap-12 space-y-12 sm:flex">
+          <div className="flex flex-col items-center justify-center gap-2 sm:gap-6">
             <FolderCheck className="size-6" />
             <h4>Effortless Inventory Management</h4>
             <p>
@@ -28,7 +28,7 @@ const ShoppingExperienceSection = () => {
               tracks your products and updates stock levels in real-time.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-2 sm:gap-6">
             <IndianRupee className="size-6" />
             <h4>Seamless Payment Processing</h4>
             <p>
@@ -36,7 +36,7 @@ const ShoppingExperienceSection = () => {
               ensuring a smooth and hassle-free checkout process.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-2 sm:gap-6">
             <MonitorSmartphone className="size-6" />
             <h4>Responsive Storefront Designing!</h4>
             <p>

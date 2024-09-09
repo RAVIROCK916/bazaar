@@ -9,8 +9,8 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="my-8 px-32">
-      <table className="mb-12 w-full table-fixed border-separate border-spacing-4">
+    <footer className="my-8 px-8 sm:px-32">
+      <table className="mb-4 w-full table-fixed border-separate border-spacing-1 sm:mb-12 sm:border-spacing-4">
         <thead className="text-left text-lg">
           <tr>
             <th>
@@ -21,7 +21,7 @@ const Footer = () => {
             <th>Help Center</th>
           </tr>
         </thead>
-        <tbody className="text-sm *:my-2">
+        <tbody className="text-sm">
           <tr>
             <td></td>
             <td>Contact</td>
@@ -55,10 +55,10 @@ const Footer = () => {
         </tbody>
       </table>
       <div className="mb-6 h-px bg-neutral-900"></div>
-      <div className="flex justify-between">
+      <div className="justify-between space-y-2 sm:flex sm:space-y-0">
         <div className="flex gap-x-12 *:text-xs">
           <small>Copyright © 2024 Bazaar. All rights reserved.</small>
-          <ul className="flex items-center gap-x-8">
+          <ul className="hidden items-center gap-x-8 sm:flex">
             <li>Privacy Policy</li>
             <li>Terms of Service</li>
             <li>Cookie Settings</li>
