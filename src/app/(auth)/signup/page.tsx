@@ -10,7 +10,7 @@ import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { toast } from "@/components/ui/use-toast";
 import { FaGoogle } from "react-icons/fa6";
-import { CircleDashed } from "lucide-react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name is required" }),
@@ -106,7 +106,7 @@ const Page = () => {
           <Button type="submit" className="text-center" disabled={isSubmitting}>
             Sign Up
             {isSubmitting && (
-              <CircleDashed className="duration-[5000] animate-spin" />
+              <AiOutlineLoading3Quarters className="animate-spin duration-500" />
             )}
           </Button>
           <Button intent="outline">
@@ -115,7 +115,7 @@ const Page = () => {
           </Button>
         </div>
         <div className="text-center">
-          Already have an account?{" "}
+          Already have an account?
           <Link href="/login" className="text-primary-200 underline">
             Log In
           </Link>
