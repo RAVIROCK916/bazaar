@@ -1,3 +1,4 @@
+import ROUTE from "@/app/api/constants/routes";
 import {
   Body,
   Button,
@@ -30,7 +31,7 @@ export const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
           <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
             <Section className="mt-[32px]">
               <Img
-                src="http://localhost:3000/Bazaar.svg"
+                src={`${ROUTE}/Bazaar.svg`}
                 width="40"
                 height="37"
                 alt="Bazaar"

@@ -3,12 +3,12 @@
 import { useState } from "react";
 
 import { toast } from "@/components/ui/use-toast";
-import { CheckCircleIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa6";
+import ROUTE from "@/app/api/constants/routes";
 
 const LoginForm = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const LoginForm = () => {
   const router = useRouter();
 
   const postCredentials = async () => {
-    const response = await fetch("http://localhost:3000/api/auth/login", {
+    const response = await fetch(`${ROUTE}/api/auth/login`, {
       method: "POST",
       body: JSON.stringify({
         email,

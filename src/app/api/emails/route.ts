@@ -8,10 +8,10 @@ export async function POST(req: Request) {
   try {
     const { name, email } = await req.json();
     await resend.emails.send({
-      from: "prt15@iitbbs.ac.in",
-      to: "eswarrajavarapu25@gmail.com",
+      from: EMAIL,
+      to: email,
       subject: "Welcome Bazaarian!",
-      // react: WelcomeEmail({ name }),
+      react: WelcomeEmail({ name }),
       text: "Welcome to Bazaar!",
     });
     return new Response("Email sent successfully", { status: 200 });

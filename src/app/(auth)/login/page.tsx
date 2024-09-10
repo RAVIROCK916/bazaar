@@ -1,4 +1,5 @@
 "use client";
+import ROUTE from "@/app/api/constants/routes";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { toast } from "@/components/ui/use-toast";
@@ -15,7 +16,7 @@ const Page = () => {
   const router = useRouter();
 
   const postCredentials = async () => {
-    const response = await fetch("http://localhost:3000/api/auth/login", {
+    const response = await fetch(`${ROUTE}/api/auth/login`, {
       method: "POST",
       body: JSON.stringify({
         email,

@@ -11,6 +11,7 @@ import { Input } from "@/components/Input";
 import { toast } from "@/components/ui/use-toast";
 import { FaGoogle } from "react-icons/fa6";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import ROUTE from "@/app/api/constants/routes";
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name is required" }),
@@ -40,7 +41,7 @@ const Page = () => {
       const { name, email, password } = getValues();
 
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        `${ROUTE}/api/auth/signup`,
         JSON.stringify({ email, password }),
       );
 
