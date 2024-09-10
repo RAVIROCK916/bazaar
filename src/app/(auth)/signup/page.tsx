@@ -61,7 +61,7 @@ const Page = () => {
     <>
       <h2>Sign Up</h2>
       <form
-        className="flex w-[420px] flex-col gap-y-6"
+        className="flex w-full flex-col gap-y-6 sm:w-[420px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative space-y-2">

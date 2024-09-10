@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "A modern e-commerce platform. Shop now and get the best deals!",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -31,8 +31,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${rajdhani.className} bg-light text-dark`}>
         <main className="flex min-h-screen *:flex-1">
-          <Image src="/Hero.png" alt="logo" width={768} height={100} />
-          <div className="flex flex-col px-16 *:flex *:items-center">
+          <Image
+            src="/Hero.png"
+            alt="logo"
+            width={768}
+            height={100}
+            className="hidden sm:block"
+          />
+          <div className="flex flex-col px-8 *:flex *:items-center sm:px-16">
             <h5 className="mt-8 h-16">
               <Logo />
             </h5>

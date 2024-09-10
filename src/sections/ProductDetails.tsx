@@ -52,14 +52,16 @@ const ProductDetails = ({ product }: props) => {
   const images = product.images.map((img, index) => (
     <figure
       key={`image-${index}`}
-      className="group flex aspect-square h-full cursor-pointer place-content-center rounded border border-neutral-400 p-4 first:col-span-4 first:row-span-4"
+      className="group flex aspect-square cursor-pointer flex-col place-content-center rounded border border-neutral-400 p-1.5 hover:bg-neutral-100 sm:p-4"
+      style={currImage === index ? { border: "3px solid #666" } : {}}
+      onClick={() => setCurrImage(index)}
     >
       <Image
         src={img}
         alt={product.title}
         height={200}
         width={200}
-        className="w-auto"
+        className="w-full"
       />
     </figure>
   ));
@@ -67,7 +69,18 @@ const ProductDetails = ({ product }: props) => {
   return (
     <section className="space-y-12 py-10 sm:py-28">
       <div className="items-end justify-between gap-x-6 sm:flex">
-        <div className="grid max-w-xl grid-cols-5 gap-4">{images}</div>
+        <div className="grid max-w-xl grid-cols-6 gap-4">
+          <figure className="col-span-5 row-span-5 rounded border border-neutral-400 p-4">
+            <Image
+              src={product.images[currImage]}
+              alt={product.title}
+              height={200}
+              width={200}
+              className="w-full"
+            />
+          </figure>
+          {images}
+        </div>
         <div className="mt-4 space-y-6 sm:mt-0">
           <h2 className="flex items-center">
             <IndianRupee className="size-10 font-semibold" />

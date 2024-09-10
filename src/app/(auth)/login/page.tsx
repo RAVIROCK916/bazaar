@@ -39,7 +39,7 @@ const Page = () => {
     <>
       <h2>Login</h2>
       <form
-        className="flex w-[420px] flex-col gap-6"
+        className="flex w-full flex-col gap-6 sm:w-[420px]"
         onSubmit={(e) => {
           e.preventDefault();
           postCredentials();

@@ -135,7 +135,7 @@ const Header = () => {
       <div className="absolute left-6 top-4 p-2" onClick={() => toggleMenu()}>
         <IoIosMenu className="text-2xl text-primary-200 sm:hidden" />
       </div>
-      <div className="mt-4 flex items-center justify-center">
+      <div className="mt-4 flex items-center justify-center sm:hidden">
         <Link href="/">
           <Logo />
         </Link>
