@@ -23,8 +23,8 @@ const DiscoverProductsSection = () => {
   }, []);
 
   return (
-    <section className="space-y-20 py-12 sm:py-28">
-      <div className="flex">
+    <section className="space-y-20 py-6 sm:py-28">
+      <div className="sm:flex">
         <div className="flex-1 space-y-4">
           <p className="text-base font-semibold">Discover</p>
           <h2>Our Products</h2>
@@ -33,11 +33,11 @@ const DiscoverProductsSection = () => {
             sorting options.
           </p>
         </div>
-        <div className="flex flex-1 items-end justify-end">
+        <div className="mt-4 flex flex-1 sm:mt-0 sm:items-end sm:justify-end">
           <Button intent="outline">View All</Button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {products.map((product: ProductType) => (
           <ProductCard key={product.id} product={product} />
         ))}

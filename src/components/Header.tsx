@@ -37,6 +37,10 @@ const Header = () => {
   const searchParams = useSearchParams();
   const auth = useSelector((state: RootState) => state.auth);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   const getRecentSearchesPlugin = useLazyRef(() =>
     createLocalStorageRecentSearchesPlugin({
       key: "RECENT_SEARCH",
@@ -128,28 +132,40 @@ const Header = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div
-        className="absolute left-6 top-4 p-2"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <div className="absolute left-6 top-4 p-2" onClick={() => toggleMenu()}>
         <IoIosMenu className="text-2xl text-primary-200 sm:hidden" />
+      </div>
+      <div className="mt-4 flex items-center justify-center">
+        <Link href="/">
+          <Logo />
+        </Link>
       </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute -inset-x-full flex flex-col items-center gap-y-10 bg-white text-2xl"
-            animate={{ inset: "0px" }}
-            exit={{ inset: "-100%" }}
+            className="fixed inset-0 -left-full flex h-screen w-screen flex-col items-center gap-y-10 bg-white py-12 text-2xl"
+            animate={{ left: "0" }}
+            exit={{ left: "-100%" }}
           >
-            <Link href="/">
+            <Link href="/" onClick={toggleMenu}>
               <Logo />
             </Link>
-            <Link href="/products">Products</Link>
-            <Link href="/about">About Us</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/about">More</Link>
+            <Link href="/products" onClick={toggleMenu}>
+              Products
+            </Link>
+            <Link href="/about" onClick={toggleMenu}>
+              About Us
+            </Link>
+            <Link href="/contact" onClick={toggleMenu}>
+              Contact
+            </Link>
+            <Link href="/about" onClick={toggleMenu}>
+              More
+            </Link>
             {auth.isAuthenticated ? (
-              <Link href="/profile">Profile</Link>
+              <Link href="/profile" onClick={toggleMenu}>
+                Profile
+              </Link>
             ) : (
               <Link href="/login">Login</Link>
             )}

@@ -31,7 +31,7 @@ const LoginForm = () => {
       location.reload();
       toast({
         title: "Login",
-				description: "You have successfully logged in!",
+        description: "You have successfully logged in!",
         variant: "success",
       });
     }
@@ -39,7 +39,7 @@ const LoginForm = () => {
 
   return (
     <form
-      className="flex w-[420px] flex-col gap-6"
+      className="flex w-80 flex-col gap-6 sm:w-[420px]"
       onSubmit={(e) => {
         e.preventDefault();
         postCredentials();

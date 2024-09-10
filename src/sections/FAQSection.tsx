@@ -1,6 +1,7 @@
 import Accordion from "@/components/Accordion";
 import { Button } from "@/components/Button";
 import { faqs } from "@/data";
+import Link from "next/link";
 
 const FAQSection = () => {
   return (
@@ -15,9 +16,11 @@ const FAQSection = () => {
           <h4>Still have questions?</h4>
           <p>Feel free to reach out to us.</p>
         </div>
-        <Button intent="outline" className="mx-auto">
-          Contact
-        </Button>
+        <Link href="/contact">
+          <Button intent="outline" className="mx-auto mt-4">
+            Contact
+          </Button>
+        </Link>
       </div>
     </section>
   );

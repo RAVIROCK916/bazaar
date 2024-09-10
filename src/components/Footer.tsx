@@ -9,9 +9,9 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="my-8 px-8 sm:px-32">
+    <footer className="p-8 sm:px-32">
       <table className="mb-4 w-full table-fixed border-separate border-spacing-1 sm:mb-12 sm:border-spacing-4">
-        <thead className="text-left text-lg">
+        <thead className="text-left text-sm sm:text-lg">
           <tr>
             <th>
               <Logo />
@@ -21,40 +21,40 @@ const Footer = () => {
             <th>Help Center</th>
           </tr>
         </thead>
-        <tbody className="text-sm">
-          <tr>
+        <tbody className="text-xs sm:text-sm">
+          <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
             <td></td>
             <td>Contact</td>
             <td>Privacy</td>
             <td>Account</td>
           </tr>
-          <tr>
+          <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
             <td></td>
             <td>Support</td>
             <td>Shipping</td>
             <td>Wishlist</td>
           </tr>
-          <tr>
+          <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
+            <td></td>
+            <td>Blog</td>
+            <td>Track Order</td>
+            <td>Featured</td>
+          </tr>
+          <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
             <td></td>
             <td>FAQ</td>
             <td>Returns</td>
             <td>Order History</td>
           </tr>
-          <tr>
-            <td></td>
-            <td>Blog</td>
-            <td>Track Order</td>
-            <td>Featured Products</td>
-          </tr>
-          <tr>
+          <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
             <td></td>
             <td>Careers</td>
-            <td>Customer Service</td>
+            <td>Service</td>
             <td>New Arrivals</td>
           </tr>
         </tbody>
       </table>
-      <div className="mb-6 h-px bg-neutral-900"></div>
+      <div className="mb-3 h-px bg-neutral-900 sm:mb-6"></div>
       <div className="justify-between space-y-2 sm:flex sm:space-y-0">
         <div className="flex gap-x-12 *:text-xs">
           <small>Copyright © 2024 Bazaar. All rights reserved.</small>

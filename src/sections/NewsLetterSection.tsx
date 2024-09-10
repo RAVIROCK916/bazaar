@@ -1,5 +1,6 @@
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
+import { toast } from "@/components/ui/use-toast";
 
 const NewsLetterSection = () => {
   return (
@@ -12,7 +13,18 @@ const NewsLetterSection = () => {
         <div className="flex flex-col gap-y-4 pt-4">
           <div className="flex gap-x-4">
             <Input type="email" placeholder="Enter your email" />
-            <Button className="min-w-fit">Subscribe Now</Button>
+            <Button
+              className="min-w-fit"
+              onClick={() =>
+                toast({
+                  title: "Newsletter",
+                  description: "Subscribed successfully",
+                  variant: "success",
+                })
+              }
+            >
+              Subscribe Now
+            </Button>
           </div>
           <small>By subscribing, you agree to our Terms and Conditions.</small>
         </div>

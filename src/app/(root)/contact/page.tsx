@@ -45,8 +45,8 @@ const page = () => {
   ];
 
   return (
-    <div className="*:py-28">
-      <section className="flex *:flex-1">
+    <div className="*:py-10 sm:*:py-28">
+      <section className="*:flex-1 sm:flex">
         <div className="space-y-4">
           <p className="font-semibold">Contact</p>
           <h1>Get in Touch</h1>
@@ -61,13 +61,13 @@ const page = () => {
           </Button>
         </div>
       </section>
-      <section className="space-y-20">
+      <section className="space-y-6 sm:space-y-20">
         <div>
           <h6 className="font-medium">
             Have any questions or need assistance? We're here to help!
           </h6>
         </div>
-        <div className="flex gap-x-20">
+        <div className="gap-x-20 sm:flex">
           <div className="w-96 space-y-10">
             {contactDetails.map((item, idx) => (
               <div key={`${item.title}-${idx}`}>
@@ -89,7 +89,7 @@ const page = () => {
               </div>
             ))}
           </div>
-          <div className="flex-1 overflow-hidden rounded">
+          <div className="mt-6 flex-1 overflow-hidden rounded sm:mt-0">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089804452!2d77.46612814580683!3d12.953945615402125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1723142104413!5m2!1sen!2sin"
               width="600"
@@ -109,7 +109,7 @@ const page = () => {
           <p>Have a question or need assistance? We're here to help.</p>
         </div>
         <form className="mx-auto max-w-3xl space-y-6">
-          <div className="flex gap-x-12 *:flex-1">
+          <div className="gap-x-12 space-y-6 *:flex-1 sm:flex sm:space-y-0">
             <div className="space-y-2">
               <label>First Name</label>
               <Input />
@@ -119,7 +119,7 @@ const page = () => {
               <Input />
             </div>
           </div>
-          <div className="flex gap-x-12 *:flex-1">
+          <div className="gap-x-12 space-y-6 *:flex-1 sm:flex sm:space-y-0">
             <div className="space-y-2">
               <label>Email</label>
               <Input />

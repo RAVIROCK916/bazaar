@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div className="*:py-28">
+    <div className="*:py-10 sm:*:py-28">
       <section className="max-w-3xl space-y-6">
         <p className="font-semibold">Innovate</p>
         <h1>Transforming E-commerce Experience</h1>
@@ -36,11 +36,11 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="space-y-8 text-center">
+      <section className="space-y-4 text-center sm:space-y-8">
         <p className="font-bold">
           Trusted by top industry leaders and collaborators
         </p>
-        <div className="flex justify-center gap-x-12">
+        <div className="flex justify-center gap-x-4 sm:gap-x-12">
           <span>
             <img src="/next.svg" alt="" className="w-28" />
           </span>
@@ -55,26 +55,20 @@ const page = () => {
           </span>
           <span>
             <img src="/next.svg" alt="" className="w-28" />
-          </span>
-          <span>
-            <img src="/vercel.svg" alt="" className="w-28" />
           </span>
         </div>
-        <div className="flex justify-center gap-x-12">
-          <span>
+        <div className="flex justify-center gap-x-4 sm:gap-x-12">
+          <span className="w-12 sm:w-28">
             <img src="/next.svg" alt="" className="w-28" />
           </span>
-          <span>
+          <span className="w-12 sm:w-28">
             <img src="/vercel.svg" alt="" className="w-28" />
           </span>
-          <span>
+          <span className="w-12 sm:w-28">
             <img src="/next.svg" alt="" className="w-28" />
           </span>
-          <span>
+          <span className="w-12 sm:w-28">
             <img src="/vercel.svg" alt="" className="w-28" />
-          </span>
-          <span>
-            <img src="/next.svg" alt="" className="w-28" />
           </span>
         </div>
       </section>
@@ -94,7 +88,7 @@ const page = () => {
               </Button>
             </div>
           </div>
-          <figure>
+          <figure className="hidden sm:block">
             <Image
               src="/Latest Collection.png"
               width={696}

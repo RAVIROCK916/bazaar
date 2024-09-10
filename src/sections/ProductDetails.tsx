@@ -45,9 +45,6 @@ const ProductDetails = ({ product }: props) => {
   const [quantity, setQuantity] = useState(1);
   const [currImage, setCurrImage] = useState(0);
 
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [initialSlide, setInitialSlide] = useState(0);
-
   const isLoggedIn = useSelector(
     (state: RootState) => state.auth.isAuthenticated,
   );
@@ -68,11 +65,10 @@ const ProductDetails = ({ product }: props) => {
   ));
 
   return (
-    <section className="space-y-12 py-28">
-      <div className="flex items-end justify-between gap-x-6">
-        <div></div>
+    <section className="space-y-12 py-10 sm:py-28">
+      <div className="items-end justify-between gap-x-6 sm:flex">
         <div className="grid max-w-xl grid-cols-5 gap-4">{images}</div>
-        <div className="space-y-6">
+        <div className="mt-4 space-y-6 sm:mt-0">
           <h2 className="flex items-center">
             <IndianRupee className="size-10 font-semibold" />
             <span>{product.price} /-</span>
@@ -155,7 +151,7 @@ const ProductDetails = ({ product }: props) => {
         </div>
         <div className="space-y-4">
           <h4>Reviews</h4>
-          <div className="flex flex-wrap gap-12">
+          <div className="flex flex-wrap gap-y-4 sm:gap-12">
             {product.reviews.map((review, index) => (
               <div
                 key={index}

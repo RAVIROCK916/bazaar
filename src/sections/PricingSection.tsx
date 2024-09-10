@@ -30,7 +30,7 @@ const PricingSection = () => {
           ))}
         </span>
       </div>
-      <div className="flex gap-x-8 *:flex-1">
+      <div className="flex flex-wrap gap-8 *:flex-1">
         {pricingOptions[currentIndex - 1].plans?.map((plan, i) => (
           <div
             key={`plan-${i}`}
