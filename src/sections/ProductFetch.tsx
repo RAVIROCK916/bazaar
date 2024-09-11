@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import ProductDetails from "./ProductDetails";
+import ProductDetails, { ProductDetailsSkeleton } from "./ProductDetails";
 import repeatArray from "@/utils/repeatArray";
 
 const ProductFetch = () => {
@@ -21,7 +21,11 @@ const ProductFetch = () => {
 
   return (
     <>
-      {product ? <ProductDetails product={product} /> : <div>Loading...</div>}
+      {product ? (
+        <ProductDetails product={product} />
+      ) : (
+        <ProductDetailsSkeleton />
+      )}
     </>
   );
 };

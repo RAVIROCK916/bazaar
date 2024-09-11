@@ -1,22 +1,18 @@
 "use client";
 
 import { Button } from "@/components/Button";
-import ProductCard from "@/components/ProductCard";
-import { setProducts } from "@/state/products/productsSlice";
-import { RootState } from "@/state/store";
+import ProductCard, { ProductCardSkeleton } from "@/components/ProductCard";
 import ProductType from "@/types/ProductType";
 import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const DiscoverProductsSection = () => {
-  const products = useSelector((state: RootState) => state.products.products);
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await axios.get("/api/products");
-      dispatch(setProducts(response.data.products));
+      setProducts(response.data.products);
       console.log(response.data.products);
     };
     fetchProducts();
@@ -38,9 +34,13 @@ const DiscoverProductsSection = () => {
         </div>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        {products.map((product: ProductType) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {products.length > 0
+          ? products.map((product: ProductType) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          : new Array(8)
+              .fill(0)
+              .map((_, index) => <ProductCardSkeleton key={index} />)}
       </div>
     </section>
   );

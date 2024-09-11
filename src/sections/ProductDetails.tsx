@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 import { ProductInfo } from "@/data";
 import ProductType from "@/types/ProductType";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { twMerge } from "tailwind-merge";
 import { FaRegStar, FaStar } from "react-icons/fa6";
@@ -12,6 +12,7 @@ import { RootState } from "@/state/store";
 import { IndianRupee } from "lucide-react";
 import StarRating from "@/components/StarRating";
 import LoginDialog from "@/components/LoginDialog";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type props = {
   product: ProductType;
@@ -33,6 +34,55 @@ const VariantOptions = () => {
             {item}
           </Button>
         ))}
+      </div>
+    </div>
+  );
+};
+
+export const ProductDetailsSkeleton = () => {
+  return (
+    <div className="space-y-12 py-10 sm:py-28">
+      <div className="items-end justify-between gap-x-6 sm:flex">
+        <div className="grid max-w-xl grid-cols-6 gap-4">
+          <Skeleton className="col-span-5 row-span-5" />
+          <div className="flex flex-col justify-between gap-4">
+            {[...Array(5)].map((_, i) => (
+              <Skeleton key={i} className="h-[82px] w-[82px]" />
+            ))}
+          </div>
+        </div>
+        <div className="mt-4 w-full max-w-xl space-y-6 sm:mt-0">
+          <Skeleton className="h-[60px]" />
+          <Skeleton className="h-5 w-40" />
+          <Skeleton className="h-6 w-32" />
+          <div className="flex flex-wrap gap-4">
+            {new Array(3).map(() => (
+              <Skeleton className="h-12 w-32" />
+            ))}
+          </div>
+          <Skeleton className="h-12 max-w-xs" />
+          <Skeleton className="h-12 max-w-xs" />
+        </div>
+      </div>
+      <div className="max-w-4xl space-y-8">
+        <Skeleton className="h-10 w-3/4" />
+        <Skeleton className="h-24 w-full" />
+        <div className="space-y-4">
+          <div className="flex gap-x-6">
+            {[...Array(3)].map((_, i) => (
+              <Skeleton key={i} className="h-8 w-24" />
+            ))}
+          </div>
+          <Skeleton className="h-40 w-full" />
+        </div>
+        <div className="space-y-4">
+          <Skeleton className="h-8 w-1/4" />
+          <div className="flex flex-wrap gap-4 sm:gap-12">
+            {[...Array(2)].map((_, i) => (
+              <Skeleton key={i} className="h-40 w-64" />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

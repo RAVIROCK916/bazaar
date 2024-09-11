@@ -15,6 +15,26 @@ type props = {
   product: ProductType;
 };
 
+import { Skeleton } from "@/components/ui/skeleton";
+
+export const ProductCardSkeleton = () => {
+  return (
+    <div className="flex flex-col justify-between gap-y-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+      <Skeleton className="h-60 w-full" />
+      <div className="space-y-4">
+        <div>
+          <Skeleton className="h-4 w-3/4" />
+          <div className="mt-2 flex justify-between gap-4">
+            <Skeleton className="h-4 w-1/4" />
+            <Skeleton className="h-4 w-1/4" />
+          </div>
+        </div>
+        <Skeleton className="h-10 w-full" />
+      </div>
+    </div>
+  );
+};
+
 const ProductCard = ({ product }: props) => {
   const [quantity, setQuantity] = useState(0);
   const router = useRouter();
