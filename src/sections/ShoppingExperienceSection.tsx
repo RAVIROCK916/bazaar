@@ -5,6 +5,7 @@ import {
   IndianRupee,
   MonitorSmartphone,
 } from "lucide-react";
+import Link from "next/link";
 
 const ShoppingExperienceSection = () => {
   return (
@@ -47,13 +48,17 @@ const ShoppingExperienceSection = () => {
         </div>
       </div>
       <div className="flex gap-6">
-        <Button intent="outline">Learn More</Button>
-        <Button intent="ghost">
-          <span>Sign Up</span>
-          <span>
-            <ChevronRight />
-          </span>
-        </Button>
+        <Link href="/about">
+          <Button intent="outline">Learn More</Button>
+        </Link>
+        <Link href="/signup">
+          <Button intent="ghost">
+            <span>Sign Up</span>
+            <span>
+              <ChevronRight />
+            </span>
+          </Button>
+        </Link>
       </div>
     </section>
   );

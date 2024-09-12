@@ -23,34 +23,74 @@ const Footer = () => {
         </thead>
         <tbody className="text-xs sm:text-sm">
           <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
-            <td></td>
-            <td>Contact</td>
-            <td>Privacy</td>
-            <td>Account</td>
+            <td>
+              <span></span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Contact</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Privacy</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Account</span>
+            </td>
           </tr>
           <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
-            <td></td>
-            <td>Support</td>
-            <td>Shipping</td>
-            <td>Wishlist</td>
+            <td>
+              <span></span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Support</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Shipping</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Wishlist</span>
+            </td>
           </tr>
           <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
-            <td></td>
-            <td>Blog</td>
-            <td>Track Order</td>
-            <td>Featured</td>
+            <td>
+              <span></span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Blog</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Track Order</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Featured</span>
+            </td>
           </tr>
           <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
-            <td></td>
-            <td>FAQ</td>
-            <td>Returns</td>
-            <td>Order History</td>
+            <td>
+              <span></span>
+            </td>
+            <td>
+              <span className="cursor-pointer">FAQ</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Returns</span>
+            </td>
+            <td>
+              <span className="cursor-pointer">Order History</span>
+            </td>
           </tr>
           <tr className="*:line-clamp-1 *:table-cell *:text-wrap">
-            <td></td>
-            <td>Careers</td>
-            <td>Service</td>
-            <td>New Arrivals</td>
+            <td>
+              <span></span>
+            </td>
+            <td>
+              <span>Careers</span>
+            </td>
+            <td>
+              <span>Service</span>
+            </td>
+            <td>
+              <span>New Arrivals</span>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -14,7 +15,9 @@ const page = () => {
         </p>
         <div className="flex gap-x-4 pt-4">
           <Button>Learn More</Button>
-          <Button intent="outline">Contact Us</Button>
+          <Link href="/contact">
+            <Button intent="outline">Contact Us</Button>
+          </Link>
         </div>
       </section>
       <section>
@@ -30,9 +33,11 @@ const page = () => {
           </p>
           <div className="mx-auto flex max-w-fit gap-x-4 pt-4">
             <Button intent="outline">Learn More</Button>
-            <Button intent="ghost">
-              Sign Up <ChevronRight className="size-5" />
-            </Button>
+            <Link href="/signup">
+              <Button intent="ghost">
+                Sign Up <ChevronRight className="size-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -83,9 +88,11 @@ const page = () => {
             </p>
             <div className="flex gap-x-6 pt-4">
               <Button intent="outline">Learn More</Button>
-              <Button intent="ghost">
-                Sign Up <ChevronRight className="size-5" />
-              </Button>
+              <Link href="/signup">
+                <Button intent="ghost">
+                  Sign Up <ChevronRight className="size-5" />
+                </Button>
+              </Link>
             </div>
           </div>
           <figure className="hidden sm:block">
